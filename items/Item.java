@@ -4,7 +4,7 @@ import interfaces.*;
 
 public abstract class Item implements Describable {
 
-	private final String NAME;
+	protected final String NAME;
 	protected final String DESCRIPTION;
 
 	public Item(String name, String description) {

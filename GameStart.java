@@ -4,6 +4,7 @@ import items.*;
 import roles.*;
 import maps.*;
 import enemy.*;
+import shopping.*;
 
 public class GameStart {
 
@@ -13,12 +14,14 @@ public class GameStart {
     private int level = 1;
     private Maps map;
     private ListofMaps MAPS;
+    private Store STORE;
 
     public GameStart(){
         this.PLAYER = new Player(new Bag(50));
         this.isGameOver = false;
 		this.scanner = new Scanner(System.in);
         this.MAPS = new ListofMaps();
+        this.STORE = new Store();
     }
 
     
@@ -115,6 +118,12 @@ public class GameStart {
                 break;
             case(3):
                 this.MAPS.printAllMaps();
+                break;
+            case(4):
+                System.out.println("Your coint is : " + this.PLAYER.getCoint());
+                break;
+            case(5):
+                this.STORE.printShopping();
                 break;
             case(6):
                 

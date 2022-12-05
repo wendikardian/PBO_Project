@@ -43,6 +43,14 @@ public class Player implements CanTakeItem, CanTakeWeapon{
         return this.name;
     }
 
+    public int getCoint(){
+        return this.coint;
+    }
+
+    public void setCoint(int coint){
+        this.coint -= coint;
+    }
+
     public void switchWeapon(Weapon w) {
         if (this.activeWeapon == null) {
             this.activeWeapon = w;

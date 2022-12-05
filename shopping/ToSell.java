@@ -11,6 +11,14 @@ class ToSell extends Item {
         this.price = price;
     }
 
+    public void getInformation(){
+        System.out.println(" > Name : " + this.NAME);
+        System.out.println(" > Description : " + this.DESCRIPTION);
+        System.out.println(" > Price : " + this.price);
+        System.out.println(" > How much it takes volume of your bag ?  " + this.VOLUME);
+        System.out.println("=============================");
+    }
+
     public int getVOLUME() {
         return this.VOLUME;
     }
