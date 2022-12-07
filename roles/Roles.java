@@ -37,9 +37,23 @@ abstract public class Roles {
         return this.dodge;
     }
 
+    public void setAttack(int attack){
+        this.attack = attack;
+    }
+    
+    public void setDodge(int dodge){
+        this.dodge = dodge;
+    }
+
+    public void setHealth(int health){
+        this.health = health;
+    }
+
     public static void printTheRoles(){
         System.out.println("============= HERE's THE ROLES ==============\n1. FIGHTER\n2. MAGE\n3. TANK\n =====\n\n");
     }
+
+
     public abstract String getRolesName();
     public abstract void yelling();
 

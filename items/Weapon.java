@@ -23,15 +23,6 @@ public class Weapon extends TakeableItem {
         return this.damage;
     }
 
-    @Override
-    public boolean use(CanTakeItem o) {
-        try {
-            ((CanTakeWeapon) o).switchWeapon(this);
-        } catch (Exception e) {
-            return false;
-        }
-        return true;
-    }
 
     public void seeDescription(){
         System.out.println("This is " + this.DESCRIPTION);

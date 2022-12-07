@@ -3,14 +3,14 @@ import interfaces.*;
 import java.util.*;
 
 public class ListofMaps implements Describable {
-    private LinkedList<Maps> LISTOFMAPS;
+    public ArrayList<Maps> LISTOFMAPS;
     private int totalMaps = 10;
     private int mapsLeft;
     
 
     public ListofMaps(){
         this.mapsLeft = this.totalMaps;
-        this.LISTOFMAPS = new LinkedList<>();
+        this.LISTOFMAPS = new ArrayList<>();
         int i = 0;
         int randNumber = 0;
         Random rand = new Random();
@@ -28,12 +28,24 @@ public class ListofMaps implements Describable {
     }
 
     public void printAllMaps(){
-        Iterator <Maps>itr = LISTOFMAPS.iterator();
-        if(!itr.hasNext()){
+        // Iterator <Maps>itr = LISTOFMAPS.iterator();
+        int i = LISTOFMAPS.size();
+        // System.out.println(i);
+        // System.out.println(itr.next().getName());
+        // if(!itr.hasNext()){
+        //     System.out.println("Sorry, your Bag is empty!");
+        // }else{
+            //     while(itr.hasNext()){
+        //         itr.next().getInformation();
+        //     }
+        // }
+        int j = 0 ;
+        if(i == 0){
             System.out.println("Sorry, your Bag is empty!");
         }else{
-            while(itr.hasNext()){
-                itr.next().getInformation();
+            for(j = 0; j < i; j++){
+                // System.out.println(j);
+                LISTOFMAPS.get(j).getInformation();
             }
         }
     }

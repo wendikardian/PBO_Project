@@ -1,10 +1,10 @@
 package items;
 
-import interfaces.CanTakeItem;
+// import interfaces.CanTakeItem;
 
-abstract class TakeableItem extends Item {
+public abstract class TakeableItem extends Item {
 
-    private final int VOLUME;
+    protected final int VOLUME;
 
 
     public TakeableItem(int VOLUME, String name, String description) {
@@ -16,7 +16,6 @@ abstract class TakeableItem extends Item {
         return this.VOLUME;
     }
 
-    abstract public boolean use(CanTakeItem o);
 
 
     abstract public void seeDescription();

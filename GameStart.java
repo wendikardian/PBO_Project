@@ -5,6 +5,7 @@ import roles.*;
 import maps.*;
 import enemy.*;
 import shopping.*;
+import bonus_games.*;
 
 public class GameStart {
 
@@ -15,6 +16,7 @@ public class GameStart {
     private Maps map;
     private ListofMaps MAPS;
     private Store STORE;
+    private Games Games;
 
     public GameStart(){
         this.PLAYER = new Player(new Bag(50));
@@ -22,6 +24,7 @@ public class GameStart {
 		this.scanner = new Scanner(System.in);
         this.MAPS = new ListofMaps();
         this.STORE = new Store();
+        this.Games = new Games(this.level);
     }
 
     
@@ -82,9 +85,19 @@ public class GameStart {
        
     System.out.println("\n\n");
        while(this.isGameOver == false){
+        
+
         System.out.println("Press any key to continue ....");
         this.scanner.nextLine();
         this.scanner.nextLine();
+        if(this.PLAYER.getChange() < 1){
+            System.out.println("Game Over !!!!");
+            this.isGameOver = true;
+        }
+        if(this.Games.getLevel() >= 10){
+            System.out.println("Congratulations! You successfully take over the Dungeon Island ! You are the champions !!!"); 
+            this.isGameOver = true;
+        }
         this.showMenu();
        }
 
@@ -123,9 +136,27 @@ public class GameStart {
                 System.out.println("Your coint is : " + this.PLAYER.getCoint());
                 break;
             case(5):
+                System.out.println("Your coint is : " + this.PLAYER.getCoint());
+                System.out.println("Your remaining volume on your bag : " + this.PLAYER.getBag().getRemainingVol());
                 this.STORE.printShopping();
+                System.out.println("Are you wanna buy something ? enter (99) to exit shopping");
+                var shop = this.scanner.nextInt();
+                try {
+                    if(shop <= 0 || shop >= 5) {
+                        throw new NumberFormatException();
+                    }
+                }
+                catch (Exception  ex) {
+                    if(shop <= 0 || shop >= 4) {
+                        System.err.print("Out of range");
+                    }
+                }
+                if(shop != 99){
+                    STORE.buyItem(shop, this.PLAYER);
+                }
                 break;
             case(6):
+                this.Games.GamePlay(PLAYER, MAPS);
                 
 
                 

@@ -2,6 +2,7 @@
 package maps;
 import enemy.*;
 import interfaces.*;
+import java.util.*;
 
 
 public abstract class  Maps implements Describable {
@@ -13,6 +14,8 @@ public abstract class  Maps implements Describable {
         
     public Maps(){
         this.leader = new Enemy();
+        Random rand = new Random();
+        this.prize = rand.nextInt(20);
         // this.leader.getEnemyYelling();
     }  
 

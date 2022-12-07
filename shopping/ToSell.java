@@ -1,14 +1,15 @@
 package shopping;
-import items.Item;
+import items.*;
+import player.*;
 
-class ToSell extends Item {
-    private final int VOLUME;
+class ToSell extends TakeableItem {
     private int price;
+    private int id;
 
-    public ToSell(String name, String description, int VOLUME, int price) {
-        super(name, description);
-        this.VOLUME = VOLUME;
+    public ToSell(int id, String name, String description, int VOLUME, int price) {
+        super(VOLUME, name, description );
         this.price = price;
+        this.id = id;
     }
 
     public void getInformation(){
@@ -25,5 +26,30 @@ class ToSell extends Item {
 
     public int getPrice() {
         return this.price;
+    }
+
+    public int getId(){
+        return id;
+    }
+
+    public boolean isCanBuy(int coint){
+        if(coint >= this.price){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+
+    public void buyItem(Player player){
+        if(this.isCanBuy(player.getCoint())){
+            player.getBag();
+        }else{
+            System.out.println("You have not anought coint to buy this item !");
+        }
+    }
+
+    public void seeDescription(){
+        System.out.println(this.DESCRIPTION);
     }
 }

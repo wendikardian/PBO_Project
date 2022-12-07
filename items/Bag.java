@@ -25,7 +25,12 @@ public class Bag{
 		return this.currentVol;
 	}
 
+    public int getRemainingVol(){
+        return this.capacity - this.currentVol;
+    }
+
     public void seeTheBag(){
+        System.out.println("Your current capacity is " + this.capacity);
         Iterator <TakeableItem>itr = TAKEABLE_ITEMS.iterator();
         if(!itr.hasNext()){
             System.out.println("Sorry, your Bag is empty!");

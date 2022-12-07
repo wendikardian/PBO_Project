@@ -6,10 +6,10 @@ import roles.*;
 // import storage.Bag;
 
 public class Player implements CanTakeItem, CanTakeWeapon{
-    private int coint = 0;
+    private int coint = 10;
     private Weapon activeWeapon = null;
     private Bag BAG;
-    private final int MaxChange = 5;
+    private final int MaxChange = 3;
     private int change;
     private String name;
     private Roles playerRoles;
@@ -47,8 +47,20 @@ public class Player implements CanTakeItem, CanTakeWeapon{
         return this.coint;
     }
 
-    public void setCoint(int coint){
+    public void subtractCoint(int coint){
         this.coint -= coint;
+    }
+
+    public void addCoint(int coint){
+        this.coint += coint;
+    }
+
+    public int getChange(){
+        return this.change;
+    }
+
+    public void subtractChange(int change){
+        this.change -= change;
     }
 
     public void switchWeapon(Weapon w) {
