@@ -94,7 +94,7 @@ public class GameStart {
             System.out.println("Game Over !!!!");
             this.isGameOver = true;
         }
-        if(this.Games.getLevel() >= 10){
+        if(this.Games.getLevel() > 10){
             System.out.println("Congratulations! You successfully take over the Dungeon Island ! You are the champions !!!"); 
             this.isGameOver = true;
         }

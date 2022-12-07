@@ -23,13 +23,13 @@ public class Games {
         int playerDodge = player.getRoles().getDodge();
         System.out.println("Your abilities : ");
         System.out.println("> Attack : " + playerAttack);
-        System.out.println("> Dodge : " + playerHealth);
-        System.out.println("> Health : " + playerDodge);
+        System.out.println("> Dodge : " + playerDodge);
+        System.out.println("> Health : " + playerHealth);
         System.out.println(" =================== ");
         player.toString();
         Random rand = new Random();
         int enemyAttack = maps.LISTOFMAPS.get(this.level - 1).getLeader().getRoles().getAttact() * this.level;
-        int enemyDodge = maps.LISTOFMAPS.get(this.level - 1).getLeader().getRoles().getDodge();
+        int enemyDodge = maps.LISTOFMAPS.get(this.level - 1).getLeader().getRoles().getDodge()+this.level;
         int enemyHealth = maps.LISTOFMAPS.get(this.level - 1).getLeader().getRoles().getHealth() * this.level;
         System.out.println("This is the information of your enemy: ");
         System.out.println("> Attack : " + enemyAttack);
@@ -65,9 +65,9 @@ public class Games {
                 if (isDodgeSuccess(playerDodge)) {
                     System.out.println("You successfully to dodge");
                 } else {
-                    System.out.println("Enemy successfully Attack you, You has been lost " + playerAttack + " Health");
+                    System.out.println("Enemy successfully Attack you, You has been lost " + enemyAttack + " Health");
                     playerHealth -= enemyAttack;
-                    System.out.println("Remaining health enemy is : " + playerHealth);
+                    System.out.println("Remaining your health is : " + playerHealth);
                 }
             }
         }
@@ -92,7 +92,7 @@ public class Games {
 
     public boolean isDodgeSuccess(int dodgeValue) {
         Random rand = new Random();
-        int random = rand.nextInt(5);
+        int random = rand.nextInt(3);
         int dodgeChange = dodgeValue * random;
         if (dodgeChange > 20) {
             return true;

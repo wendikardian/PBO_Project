@@ -32,8 +32,8 @@ class ToSell extends TakeableItem {
         return id;
     }
 
-    public boolean isCanBuy(int coint){
-        if(coint >= this.price){
+    public boolean isCanBuy(int coint, Bag bag){
+        if(coint >= this.price && bag.getRemainingVol() > this.VOLUME){
             return true;
         }else{
             return false;
@@ -42,7 +42,7 @@ class ToSell extends TakeableItem {
 
 
     public void buyItem(Player player){
-        if(this.isCanBuy(player.getCoint())){
+        if(this.isCanBuy(player.getCoint(), player.getBag())){
             player.getBag();
         }else{
             System.out.println("You have not anought coint to buy this item !");

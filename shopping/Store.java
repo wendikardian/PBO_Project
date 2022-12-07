@@ -38,7 +38,7 @@ public class Store {
 
     public void buyItem(int id, Player player){
         ToSell item = TOSELL.get(id - 1);
-        if(item.isCanBuy(player.getCoint())){
+        if(item.isCanBuy(player.getCoint(), player.getBag())){
             player.subtractCoint(item.getPrice());
             player.getBag().addItem(item);
             if(id == 1){
@@ -54,7 +54,7 @@ public class Store {
             }
             System.out.println("Thanks for buyying !!");
         }else{
-            System.out.println("Sorry you have not enaught money to buy this item");
+            System.out.println("Sorry you have not enaught money to buy this item or your bag is full");
         }
     }
 
