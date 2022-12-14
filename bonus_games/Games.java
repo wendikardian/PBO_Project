@@ -50,7 +50,8 @@ public class Games {
                 new Scanner(System.in).nextLine();
                 isWin = JumbleGame.main();
             }
-
+            System.out.println("==================");
+            System.out.println("==================");
             if (isWin) {
                 System.out.println("You attack the enemy");
                 if (isDodgeSuccess(enemyDodge)) {
@@ -71,6 +72,9 @@ public class Games {
                 }
             }
         }
+
+        System.out.println("==================");
+        System.out.println("==================");
 
         if(enemyHealth < 1){
             maps.LISTOFMAPS.get(this.level - 1).takenOver();

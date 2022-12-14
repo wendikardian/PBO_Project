@@ -15,11 +15,16 @@ public class MathFighter {
         int randomNumberRem = randomNumber1 % randomNumber2;
         int correct = 0;
         System.out.println("Welcome to math figthter !!!");
-        System.out.println("You must win atleast 70% of the total score to win this game !!!!");
+        System.out.println("You must win atleast 60% of the total score to win this game !!!!");
         System.out.println("Good luck ! \n ===========================");
         System.out.print(randomNumber1 + " + " + randomNumber2 + " = ");
-        int GuessRandomNumberAdd = scanner.nextInt();
-
+        int GuessRandomNumberAdd = 1;
+        try {
+            GuessRandomNumberAdd = scanner.nextInt();
+        } catch (InputMismatchException e) {
+            // e.printStackTrace();
+            System.err.println("Entered value is not an integer");
+        }
         if (GuessRandomNumberAdd == randomNumber1 + randomNumber2) {
             System.out.println("Correct!");
             correct++;
@@ -29,7 +34,13 @@ public class MathFighter {
 
         }
         System.out.print(randomNumber1 + " * " + randomNumber2 + " = ");
-        int GuessRandomNumberMul = scanner.nextInt();
+        int GuessRandomNumberMul = 1;
+        try {
+            GuessRandomNumberMul = scanner.nextInt();
+        } catch (InputMismatchException e) {
+            // e.printStackTrace();
+            System.err.println("Entered value is not an integer");
+        }
 
         if (GuessRandomNumberMul == randomNumber1 * randomNumber2) {
             System.out.println("Correct!");
@@ -39,20 +50,15 @@ public class MathFighter {
             System.out.println("The correct answer is " + randomNumberMul);
 
         }
-        System.out.print(randomNumber1 + " / " + randomNumber2 + " = ");
-        int GuessRandomNumberDiv = scanner.nextInt();
 
-        if (GuessRandomNumberDiv == randomNumber1 / randomNumber2) {
-            System.out.println("Correct!");
-            correct++;
-
-        } else {
-            System.out.println("Wrong!");
-            System.out.println("The correct answer is " + randomNumberMul);
-
-        }
         System.out.print(randomNumber1 + " % " + randomNumber2 + " = ");
-        int GuessRandomNumberRem = scanner.nextInt();
+        int GuessRandomNumberRem = 1;
+        try {
+            GuessRandomNumberRem = scanner.nextInt();
+        } catch (InputMismatchException e) {
+            // e.printStackTrace();
+            System.err.println("Entered value is not an integer");
+        }
         if (GuessRandomNumberRem == randomNumber1 % randomNumber2) {
             System.out.println("Correct!");
             correct++;
@@ -61,12 +67,12 @@ public class MathFighter {
             System.out.println("Wrong!");
             System.out.println("The correct answer is " + randomNumberRem);
         }
-        double percentageCorrect = correct * 25;
+        double percentageCorrect = correct * 34;
 
         System.out.println("You got " + correct + " correct answers.");
 
         System.out.println("That's " + percentageCorrect + "%!");
-        if(percentageCorrect >= 70){
+        if(percentageCorrect >= 60){
             return true;
         }else{
             return false;

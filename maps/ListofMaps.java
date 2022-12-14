@@ -50,8 +50,6 @@ public class ListofMaps implements Describable {
         }
     }
 
-
-
     public void subMap(){
         this.mapsLeft -= 1;
     }
@@ -59,8 +57,5 @@ public class ListofMaps implements Describable {
     public String readDescription(){
         return "this is the list of maps ..";
     }
-
-
-
 
 }

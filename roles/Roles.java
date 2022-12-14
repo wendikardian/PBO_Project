@@ -49,6 +49,12 @@ abstract public class Roles {
         this.health = health;
     }
 
+    public static void  introduce(){
+        System.out.println("==================================\n");
+        System.out.println("==========THIS IS THE ROLES=======\n");
+        System.out.println("==================================\n");
+    }
+
     public static void printTheRoles(){
         System.out.println("============= HERE's THE ROLES ==============\n1. FIGHTER\n2. MAGE\n3. TANK\n =====\n\n");
     }
